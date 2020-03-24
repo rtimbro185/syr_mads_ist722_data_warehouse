@@ -4,7 +4,7 @@
 ## [Syracuse University, Masters of Applied Data Science](https://ischool.syr.edu/academics/graduate/masters-degrees/ms-in-applied-data-science/)
 
 ### IST 722 Data Warehousing - Winter 2020
-### [SYLLABUS](./ist_722_Syllabus.pdf)
+### [SYLLABUS](./IST_722_Syllabus.pdf)
 
                                    **SYRACUSE UNIVERSITY School of Information Studies**
                                            **IST - 722 Data Warehousing**     
