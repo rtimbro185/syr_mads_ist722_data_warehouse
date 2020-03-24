@@ -35,7 +35,7 @@ The	course	will	leverage	a	portfolio	of	SQL	Server	tools	that	include	SQL	Server
 	• List	some	of	the	recent	trends	in	Data	Warehouse<br>
 	
  
-[Course Schedule](./IST722Schedule_2)
+[Course Schedule](./IST722Schedule_2.pdf)
 
 
 
