@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Northwind_SSAS", "Northwind_SSAS.dwproj", "{4618C7E1-C68A-4CF7-9712-3E7295D7CE64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4618C7E1-C68A-4CF7-9712-3E7295D7CE64}.Development|Default.ActiveCfg = Development
+		{4618C7E1-C68A-4CF7-9712-3E7295D7CE64}.Development|Default.Build.0 = Development
+		{4618C7E1-C68A-4CF7-9712-3E7295D7CE64}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86348D88-D911-4A8E-973D-5BF214957F37}
+	EndGlobalSection
+EndGlobal

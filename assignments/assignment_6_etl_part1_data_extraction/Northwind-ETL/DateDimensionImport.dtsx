@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2020 10:20:01 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-I85HPT5"
+  DTS:CreatorName="DESKTOP-I85HPT5\rt310"
+  DTS:DTSID="{51D169CA-9B9E-406A-94FF-B685C40FF9D3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DateDimensionImport"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{E20F6B94-9E73-4E41-84A8-628ED51A7A99}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ist-cs-dw1.ad.syr.edu]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BE2400F4-4DF7-40BA-B80A-CC0560308B9C}"
+      DTS:ObjectName="ist-cs-dw1.ad.syr.edu">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ist-cs-dw1.ad.syr.edu;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Extract From Source to Stage stgDate"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FAC46F9A-798E-4C3B-9A0C-E2414CA3BB47}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Extract From Source to Stage stgDate"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{2F76CAB7-07AD-4DCA-B68C-5DF4046E63BC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ist-cs-dw1.ad.syr.edu.ist722_rtimbroo_stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - ExternalSources2 date_dimension"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[date_dimension]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{3C1D9713-E99A-468C-912C-AC5F7A19BF28}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ist-cs-dw1.ad.syr.edu.ExternalSources2]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FullDateUK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDateUK]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FullDateUK]"
+                      name="FullDateUK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FullDateUSA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDateUSA]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FullDateUSA]"
+                      name="FullDateUSA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfMonth]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfMonth]"
+                      name="DayOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DaySuffix]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DaySuffix]"
+                      length="4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DaySuffix]"
+                      name="DaySuffix"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      name="DayName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekUSA]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekUSA]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekUSA]"
+                      name="DayOfWeekUSA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekUK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekUK]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekUK]"
+                      name="DayOfWeekUK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekInMonth]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekInMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekInMonth]"
+                      name="DayOfWeekInMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekInYear]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekInYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfWeekInYear]"
+                      name="DayOfWeekInYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfQuarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfQuarter]"
+                      name="DayOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[DayOfYear]"
+                      name="DayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfMonth]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfMonth]"
+                      name="WeekOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfQuarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfQuarter]"
+                      name="WeekOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfYear]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[WeekOfYear]"
+                      name="WeekOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Month]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      name="MonthName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthOfQuarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthOfQuarter]"
+                      name="MonthOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      name="QuarterName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[YearName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[YearName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[YearName]"
+                      name="YearName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthYear]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthYear]"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MonthYear]"
+                      name="MonthYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MMYYYY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MMYYYY]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[MMYYYY]"
+                      name="MMYYYY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfMonth]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfMonth]"
+                      name="FirstDayOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfMonth]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfMonth]"
+                      name="LastDayOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfQuarter]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfQuarter]"
+                      name="FirstDayOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfQuarter]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfQuarter]"
+                      name="LastDayOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfYear]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FirstDayOfYear]"
+                      name="FirstDayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfYear]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[LastDayOfYear]"
+                      name="LastDayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsWeekday]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsWeekday]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsWeekday]"
+                      name="IsWeekday"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsWeekdayYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsWeekdayYesNo]"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsWeekdayYesNo]"
+                      name="IsWeekdayYesNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUSA]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUSA]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUSA]"
+                      name="IsHolidayUSA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUSAYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUSAYesNo]"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUSAYesNo]"
+                      name="IsHolidayUSAYesNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[HolidayNameUSA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[HolidayNameUSA]"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[HolidayNameUSA]"
+                      name="HolidayNameUSA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUK]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUK]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[IsHolidayUK]"
+                      name="IsHolidayUK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[HolidayNameUK]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[HolidayNameUK]"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[HolidayNameUK]"
+                      name="HolidayNameUK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalDayOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalDayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalDayOfYear]"
+                      name="FiscalDayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalWeekOfYear]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalWeekOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalWeekOfYear]"
+                      name="FiscalWeekOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMonth]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMonth]"
+                      name="FiscalMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalQuarter]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalQuarter]"
+                      name="FiscalQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalQuarterName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalQuarterName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalQuarterName]"
+                      name="FiscalQuarterName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalYear]"
+                      name="FiscalYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalYearName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalYearName]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalYearName]"
+                      name="FiscalYearName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMonthYear]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMonthYear]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMonthYear]"
+                      name="FiscalMonthYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMMYYYY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMMYYYY]"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalMMYYYY]"
+                      name="FiscalMMYYYY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfMonth]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfMonth]"
+                      name="FiscalFirstDayOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfMonth]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfMonth]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfMonth]"
+                      name="FiscalLastDayOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfQuarter]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfQuarter]"
+                      name="FiscalFirstDayOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfQuarter]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfQuarter]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfQuarter]"
+                      name="FiscalLastDayOfQuarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfYear]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalFirstDayOfYear]"
+                      name="FiscalFirstDayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfYear]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfYear]"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].Columns[FiscalLastDayOfYear]"
+                      name="FiscalLastDayOfYear"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDateUK]"
+                      dataType="wstr"
+                      length="10"
+                      name="FullDateUK" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDateUSA]"
+                      dataType="wstr"
+                      length="10"
+                      name="FullDateUSA" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfMonth]"
+                      dataType="ui1"
+                      name="DayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DaySuffix]"
+                      dataType="wstr"
+                      length="4"
+                      name="DaySuffix" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      dataType="wstr"
+                      length="10"
+                      name="DayName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekUSA]"
+                      dataType="ui1"
+                      name="DayOfWeekUSA" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekUK]"
+                      dataType="ui1"
+                      name="DayOfWeekUK" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekInMonth]"
+                      dataType="ui1"
+                      name="DayOfWeekInMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfWeekInYear]"
+                      dataType="ui1"
+                      name="DayOfWeekInYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfQuarter]"
+                      dataType="ui1"
+                      name="DayOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayOfYear]"
+                      dataType="i4"
+                      name="DayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfMonth]"
+                      dataType="ui1"
+                      name="WeekOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfQuarter]"
+                      dataType="ui1"
+                      name="WeekOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekOfYear]"
+                      dataType="ui1"
+                      name="WeekOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                      dataType="ui1"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="10"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthOfQuarter]"
+                      dataType="ui1"
+                      name="MonthOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      dataType="ui1"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      dataType="wstr"
+                      length="10"
+                      name="QuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[YearName]"
+                      dataType="wstr"
+                      length="10"
+                      name="YearName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthYear]"
+                      dataType="wstr"
+                      length="50"
+                      name="MonthYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MMYYYY]"
+                      dataType="wstr"
+                      length="10"
+                      name="MMYYYY" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfMonth]"
+                      dataType="dbDate"
+                      name="FirstDayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfMonth]"
+                      dataType="dbDate"
+                      name="LastDayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfQuarter]"
+                      dataType="dbDate"
+                      name="FirstDayOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfQuarter]"
+                      dataType="dbDate"
+                      name="LastDayOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FirstDayOfYear]"
+                      dataType="dbDate"
+                      name="FirstDayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[LastDayOfYear]"
+                      dataType="dbDate"
+                      name="LastDayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsWeekday]"
+                      dataType="bool"
+                      name="IsWeekday" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsWeekdayYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="IsWeekdayYesNo" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUSA]"
+                      dataType="bool"
+                      name="IsHolidayUSA" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUSAYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="IsHolidayUSAYesNo" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[HolidayNameUSA]"
+                      dataType="wstr"
+                      length="50"
+                      name="HolidayNameUSA" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[IsHolidayUK]"
+                      dataType="bool"
+                      name="IsHolidayUK" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[HolidayNameUK]"
+                      dataType="wstr"
+                      length="50"
+                      name="HolidayNameUK" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalDayOfYear]"
+                      dataType="i4"
+                      name="FiscalDayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalWeekOfYear]"
+                      dataType="ui1"
+                      name="FiscalWeekOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMonth]"
+                      dataType="ui1"
+                      name="FiscalMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalQuarter]"
+                      dataType="ui1"
+                      name="FiscalQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalQuarterName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FiscalQuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalYear]"
+                      dataType="i4"
+                      name="FiscalYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalYearName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FiscalYearName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMonthYear]"
+                      dataType="wstr"
+                      length="10"
+                      name="FiscalMonthYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalMMYYYY]"
+                      dataType="wstr"
+                      length="10"
+                      name="FiscalMMYYYY" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfMonth]"
+                      dataType="dbDate"
+                      name="FiscalFirstDayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfMonth]"
+                      dataType="dbDate"
+                      name="FiscalLastDayOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfQuarter]"
+                      dataType="dbDate"
+                      name="FiscalFirstDayOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfQuarter]"
+                      dataType="dbDate"
+                      name="FiscalLastDayOfQuarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalFirstDayOfYear]"
+                      dataType="dbDate"
+                      name="FiscalFirstDayOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FiscalLastDayOfYear]"
+                      dataType="dbDate"
+                      name="FiscalLastDayOfYear" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDateUK]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDateUK]"
+                      name="FullDateUK" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDateUSA]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDateUSA]"
+                      name="FullDateUSA" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfMonth]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfMonth]"
+                      name="DayOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DaySuffix]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DaySuffix]"
+                      name="DaySuffix" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      name="DayName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekUSA]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekUSA]"
+                      name="DayOfWeekUSA" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekUK]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekUK]"
+                      name="DayOfWeekUK" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekInMonth]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekInMonth]"
+                      name="DayOfWeekInMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekInYear]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfWeekInYear]"
+                      name="DayOfWeekInYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfQuarter]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfQuarter]"
+                      name="DayOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[DayOfYear]"
+                      name="DayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfMonth]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfMonth]"
+                      name="WeekOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfQuarter]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfQuarter]"
+                      name="WeekOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfYear]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekOfYear]"
+                      name="WeekOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Month]"
+                      name="Month" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      name="MonthName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthOfQuarter]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthOfQuarter]"
+                      name="MonthOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      name="Quarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      name="QuarterName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[YearName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[YearName]"
+                      name="YearName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthYear]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthYear]"
+                      name="MonthYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MMYYYY]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[MMYYYY]"
+                      name="MMYYYY" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfMonth]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfMonth]"
+                      name="FirstDayOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfMonth]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfMonth]"
+                      name="LastDayOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfQuarter]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfQuarter]"
+                      name="FirstDayOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfQuarter]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfQuarter]"
+                      name="LastDayOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfYear]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FirstDayOfYear]"
+                      name="FirstDayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfYear]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[LastDayOfYear]"
+                      name="LastDayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsWeekday]"
+                      dataType="bool"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsWeekday]"
+                      name="IsWeekday" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsWeekdayYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsWeekdayYesNo]"
+                      name="IsWeekdayYesNo" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUSA]"
+                      dataType="bool"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUSA]"
+                      name="IsHolidayUSA" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUSAYesNo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUSAYesNo]"
+                      name="IsHolidayUSAYesNo" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[HolidayNameUSA]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[HolidayNameUSA]"
+                      name="HolidayNameUSA" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUK]"
+                      dataType="bool"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[IsHolidayUK]"
+                      name="IsHolidayUK" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[HolidayNameUK]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[HolidayNameUK]"
+                      name="HolidayNameUK" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalDayOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalDayOfYear]"
+                      name="FiscalDayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalWeekOfYear]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalWeekOfYear]"
+                      name="FiscalWeekOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMonth]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMonth]"
+                      name="FiscalMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalQuarter]"
+                      dataType="ui1"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalQuarter]"
+                      name="FiscalQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalQuarterName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalQuarterName]"
+                      name="FiscalQuarterName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalYear]"
+                      name="FiscalYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalYearName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalYearName]"
+                      name="FiscalYearName" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMonthYear]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMonthYear]"
+                      name="FiscalMonthYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMMYYYY]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalMMYYYY]"
+                      name="FiscalMMYYYY" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfMonth]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfMonth]"
+                      name="FiscalFirstDayOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfMonth]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfMonth]"
+                      name="FiscalLastDayOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfQuarter]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfQuarter]"
+                      name="FiscalFirstDayOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfQuarter]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfQuarter]"
+                      name="FiscalLastDayOfQuarter" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfYear]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalFirstDayOfYear]"
+                      name="FiscalFirstDayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfYear]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[FiscalLastDayOfYear]"
+                      name="FiscalLastDayOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load from stgDate to DimDate"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2253F34B-45AA-4779-9A75-55477D10638F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load from stgDate to DimDate"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate stgDate Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21A1B8B3-B928-4B61-8CDC-62B99B2BD33B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate stgDate Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9BA7B437-79B4-42F6-874D-653CB94FEC36}"
+      DTS:From="Package\SQL - Truncate stgDate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Extract From Source to Stage stgDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C65DB94-0A36-4A96-ACF4-D64A682AA4EF}"
+      DTS:From="Package\DF - Extract From Source to Stage stgDate"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF - Load from stgDate to DimDate" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\DF - Extract From Source to Stage stgDate"
+          TopLeft="295.999988238017,265.546668777042" />
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\DF - Load from stgDate to DimDate"
+          TopLeft="377.99998497963,426.400003388723" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\SQL - Truncate stgDate Table"
+          TopLeft="259.333323028353,64.480000512441" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="367.733323028353,106.080000512441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="66.2666652096643,159.466668264601"
+              Start="0,0"
+              End="66.2666652096643,151.966668264601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.7333341323005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.7333341323005"
+                    Point2="0,79.7333341323005"
+                    Point3="4,79.7333341323005" />
+                  <mssgle:LineSegment
+                    End="62.2666652096643,79.7333341323005" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62.2666652096643,79.7333341323005"
+                    Point2="66.2666652096643,79.7333341323005"
+                    Point3="66.2666652096643,83.7333341323005" />
+                  <mssgle:LineSegment
+                    End="66.2666652096643,151.966668264601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="433.999988238017,307.146668777042">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="64.7999967416128,119.253334611681"
+              Start="0,0"
+              End="64.7999967416128,111.753334611681">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.6266673058404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.6266673058404"
+                    Point2="0,59.6266673058404"
+                    Point3="4,59.6266673058404" />
+                  <mssgle:LineSegment
+                    End="60.7999967416128,59.6266673058404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60.7999967416128,59.6266673058404"
+                    Point2="64.7999967416128,59.6266673058404"
+                    Point3="64.7999967416128,63.6266673058404" />
+                  <mssgle:LineSegment
+                    End="64.7999967416128,111.753334611681" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Extract From Source to Stage stgDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="268,41.6"
+          Id="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension"
+          TopLeft="239.333323823082,88.0533340331184" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DF - Extract From Source to Stage stgDate\OLE DB Destination"
+          TopLeft="371.333318577873,179.573334760454" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Extract From Source to Stage stgDate\SRC - ExternalSources2 date_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
